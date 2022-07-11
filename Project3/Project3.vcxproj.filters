@@ -48,4 +48,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.md">
+      <Filter>Файлы заголовков</Filter>
+    </None>
+  </ItemGroup>
 </Project>
