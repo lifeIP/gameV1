@@ -1,5 +1,5 @@
 #pragma once
-class Button : public sf::Drawable
+class Button: public sf::Drawable
 {
 	sf::Vector2i mouse_pos;
 	sf::Vector2u offset;
@@ -7,7 +7,7 @@ class Button : public sf::Drawable
 	sf::Vector2u button_size;
 	std::vector<unsigned int>rgba;
 	std::vector<unsigned int>rgba_text;
-	bool* f_lag;
+	bool *f_lag;
 	int button_number;
 	bool a1;
 	unsigned short font_size;
@@ -15,7 +15,7 @@ public:
 	void set_font_size(const unsigned short& font_size) {
 		this->font_size = font_size;
 	}
-	void set_offset_text(sf::Vector2u& offset) {
+	void set_offset_text(const sf::Vector2u& offset) {
 		this->offset = offset;
 	}
 	void set_color(const unsigned int& r, const unsigned int& g, const unsigned int& b, const unsigned int& a) {
@@ -44,7 +44,7 @@ public:
 		this->button_pos = *button_pos;
 		config_button_pos_size_texture_config();
 	}
-	sf::Vector2f get_button_pos() const {
+	sf::Vector2f get_button_pos() const{
 		return button_pos;
 	}
 	void set_button_size(sf::Vector2u* button_size) {
@@ -56,7 +56,7 @@ public:
 	}
 	Button(sf::RenderWindow* window, bool* f_lag, int button_number) {
 		this->window = window;
-		button_pos = sf::Vector2f(window->getSize().x / 2, window->getSize().y / 2);
+		button_pos = sf::Vector2f(window->getSize().x/2, window->getSize().y / 2);
 		button_size = sf::Vector2u(400, 65);
 		this->button_number = button_number;
 		rgba = { 0,0,100,80 };
@@ -68,7 +68,7 @@ public:
 		text.setCharacterSize(font_size);
 		text.setFillColor(sf::Color::Yellow);
 		text.setPosition(sf::Vector2f(button_pos.x + 5, button_pos.y + 5));
-		offset = sf::Vector2u(5, 5);
+		offset = sf::Vector2u(5,5);
 		config_button_pos_size_texture_config();
 	}
 	~Button() {
@@ -92,7 +92,7 @@ public:
 			}
 		}
 	}
-
+	
 private:
 	sf::RenderWindow* window;
 	sf::Text text;
@@ -104,8 +104,8 @@ private:
 		obj.resize(4);
 		obj.setPrimitiveType(sf::Quads);
 		obj[0] = sf::Vertex(sf::Vector2f(button_pos.x, button_pos.y), sf::Color::Color(rgba[0], rgba[1], rgba[2], rgba[3]));
-		obj[1] = sf::Vertex(sf::Vector2f(button_pos.x + button_size.x, button_pos.y), sf::Color::Color(rgba[0], rgba[1], rgba[2], rgba[3]));
-		obj[2] = sf::Vertex(sf::Vector2f(button_pos.x + button_size.x, button_pos.y + button_size.y), sf::Color::Color(rgba[0], rgba[1], rgba[2], rgba[3]));
+		obj[1] = sf::Vertex(sf::Vector2f(button_pos.x + button_size.x, button_pos.y), sf::Color::Color(rgba[0], rgba[1], rgba[2], 40));
+		obj[2] = sf::Vertex(sf::Vector2f(button_pos.x + button_size.x, button_pos.y + button_size.y), sf::Color::Color(rgba[0], rgba[1], rgba[2], 40));
 		obj[3] = sf::Vertex(sf::Vector2f(button_pos.x, button_pos.y + button_size.y), sf::Color::Color(rgba[0], rgba[1], rgba[2], rgba[3]));
 	}
 	void config_button_text()
